@@ -1,93 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
     <title>Jobin S Kumar</title>
+    <link rel="canonical" href="index.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta property="og:title" content="Jobin S Kumar" />
     <meta property="og:description" content="Software Engineer" />
     <meta property="og:url" content="http://www.jobinskumar.info/" />
     <meta property="og:type" content="website" />	
     <meta name="Keywords" content="jobinskumar, jobin s kumar">
-
-	<!-- Custom Font -->
-	<link rel='stylesheet' href='css/open-sans-condensed300-fontface.css'>
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- Theme -->
-	<link rel='stylesheet' href='css/theme.css'>
-	<link rel="icon" href="img/jobin.png">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="icon" href="img/jobin.png">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-story"
+        src="https://cdn.ampproject.org/v0/amp-story-0.1.js"></script>
+    <link rel='stylesheet' href='css/open-sans-condensed300-fontface.css'>
+    <style amp-custom>
+      amp-story {
+        font-family: 'Open Sans Condensed', sans-serif;
+        color: #333;
+      }
+      amp-story-page {
+        background-color: #fff;
+      }
+      h1 {
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-top: 21% !important;
+      }
+      p {
+        font-weight: normal;
+        font-size: 1.3em;
+        line-height: 1.5em;
+      }
+      amp-story-grid-layer.bottom {
+        align-content:end;
+      }
+      #page5 amp-story-grid-layer div {
+        overflow: auto;
+      }
+      ::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+      }
+      ::-webkit-scrollbar-button {
+        width: 0px;
+        height: 0px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #a6a6a6;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #949494;
+      }
+      ::-webkit-scrollbar-thumb:active {
+        background: #000000;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f7f7f7;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+      }
+      ::-webkit-scrollbar-track:hover {
+        background: #e1e1e1;
+      }
+      ::-webkit-scrollbar-track:active {
+        background: #333333;
+      }
+      ::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    </style>
   </head>
   <body>
-    <div class="container-fluid">
-        <center>
-            <div class="row main">
-                <div class="col-md-6">
-                    <div class="animated zoomIn content">
-                        <h1>I'M <font color="#2d89ef">JOBIN S KUMAR</font></h1>
-                        <p>Software Engineer</p>
-                    </div>
-                </div>
-                <div class="col-md-6 animated zoomIn">
-                    <ul class="menu">
-                        <li id="home" onclick="setView('home')">HOME</li>
-                        <li id="work" onclick="setView('work')">WORK</li>
-                        <li class="active" id="about" onclick="setView('about')">BIO</li>
-                        <li id="contact" onclick="setView('contact')">CONTACT</li>
-                        <li class="social pull-right"><a href="https://twitter.com/jobinskumar91"><i class="fa fa-twitter"></i></a></li>
-                        <li class="social pull-right"><a href="https://www.facebook.com/jobin.skumar"><i class="fa fa-facebook"></i></a></li>
-                    </ul>
-                    <hr>
-                    <div class="content">
-                        <p id="workView">Cognizant Technology Solutions, <br>Kochi</p>
-                        <p id="homeView">Ooruttambalam, Trivandrum<br> S.Kerala, India</p>
-                        <p id="contactView">jobinskumar91@gmail.com</p>
-                        <p class="active" id="aboutView">Passionate about technologies |  Change the world to a better place |  Interested in AI, Robotics, IOT.. <br/>Interest... Imagination... Passion...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="animated zoomIn social-bottom">
-                <a class="pull-right" href="https://twitter.com/jobinskumar91"><i class="fa fa-twitter"></i></a>
-                <a class="pull-right" href="https://www.facebook.com/jobin.skumar"><i class="fa fa-facebook"></i></a>
-            </div>
-        </center>
-        <hr>
-        <center>
-            <a class="twitter-grid" data-width="750" data-partner="tweetdeck" href="https://twitter.com/jobinskumar91/timelines/792386308811296769">New Collection</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </center>
-        <footer>
-            <center><p>&copy; JOBIN S KUMAR 2017. All rights reserved.</p></center>
-        </footer>
-    </div>
-
-	<script>
-		var activeView = 'about';
-		function setView( view ){
-			if(activeView != null){
-				document.getElementById(activeView+'View').classList.remove('active');
-				document.getElementById(activeView).classList.remove('active');
-			}
-			activeView = view;
-			document.getElementById(view+'View').classList.add('active');
-			document.getElementById(view).classList.add('active');
-		}
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-63103525-1', 'auto');
-		ga('send', 'pageview');
-	</script>
+    <amp-story standalone title="Jobin S Kumar"
+    publisher="@jobinskumar"
+    publisher-logo-src="https://example.com/logo/1x1.png"
+    poster-portrait-src="https://example.com/my-story/poster/3x4.jpg">
+      <amp-story-page id="cover">
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="middle-third">
+            <h1 animate-in="fade-in"
+                animate-in-duration="1s">I'M <font color="#2d89ef">JOBIN S KUMAR</font></h1>
+            <p grid-area="lower-third"
+               animate-in="fade-in"
+               animate-in-duration="1s">Software Engineer</p>
+          </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+      <amp-story-page id="page1">
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="middle-third">
+            <h2 animate-in="fade-in"
+                animate-in-duration="1s"><font color="#0f9d58">BIO</font></h2>
+            <p grid-area="lower-third"
+               animate-in="fade-in"
+               animate-in-duration="1s">Passionate about technologies | Change the world to a better place | Interested in AI, Robotics, IOT.. Interest... Imagination... Passion...</p>
+          </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+      <amp-story-page id="page2">
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="middle-third">
+            <h2 animate-in="fade-in"
+                animate-in-duration="1s"><font color="#f4b400">WORK</font></h2>
+            <p grid-area="lower-third"
+               animate-in="fade-in"
+               animate-in-duration="1s">Cognizant Technology Solutions, Kochi</p>
+          </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+      <amp-story-page id="page3">
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="middle-third">
+            <h2 animate-in="fade-in"
+                animate-in-duration="1s"><font color="#4285f4">HOME</font></h2>
+            <p grid-area="lower-third"
+               animate-in="fade-in"
+               animate-in-duration="1s">Ooruttambalam, Trivandrum, S.Kerala, India</p>
+          </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+      <amp-story-page id="page4">
+        <amp-story-grid-layer template="thirds">
+          <div grid-area="middle-third">
+            <h2 animate-in="fade-in"
+                animate-in-duration="1s"><font color="#db4437">CONTACT</font></h2>
+            <p grid-area="lower-third"
+               animate-in="fade-in"
+               animate-in-duration="1s">jobinskumar91@gmail.com</p>
+          </div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+      <amp-story-page id="page5">
+        <amp-story-grid-layer template="vertical">
+          <div><a class="twitter-timeline" href="https://twitter.com/jobinskumar91?ref_src=twsrc%5Etfw">Tweets by jobinskumar91</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+        </amp-story-grid-layer>
+      </amp-story-page>
+    </amp-story>
   </body>
 </html>
