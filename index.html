@@ -190,6 +190,9 @@
         #slide0 {
           display: none;
         }
+        .pause-indicator {
+          padding-top: 20px !important;
+        }
       }
       ::-webkit-scrollbar {
         width: 2px;
@@ -266,42 +269,54 @@
         box-shadow: none !important;
         background-size: 50px;
       }
+      .pause-indicator {
+        float: right;
+        padding-right: 10px;
+        padding-top: 10px;
+        font-size: 12pt;
+        display: none;
+      }
     </style>
   </head>
   <body id="main" class="active-slide-1">
     <div class="story-container">
       <div id="slide0" class="slide previous-slide" style="opacity:0;cursor:default;"></div>
-      <div id="slide1" class="slide active" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()" data-slide="active">
+      <div id="slide1" class="slide active" onclick="changeSlideOnClick(event)" data-slide="active">
+        <p id="pauseIndicator1" class="pause-indicator">Paused</p>
         <div class="middle-third">
           <h1>I'M <font color="#2d89ef">JOBIN S KUMAR</font></h1>
           <p>Software Engineer</p>
         </div>
       </div>
-      <div id="slide2" class="slide next-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()" data-slide="next">
+      <div id="slide2" class="slide next-slide" onclick="changeSlideOnClick(event)" data-slide="next">
+        <p id="pauseIndicator2" class="pause-indicator">Paused</p>
         <div class="middle-third">
           <h1><font color="#0f9d58">BIO</font></h1>
           <p>Passionate about technologies | Change the world to a better place </br>Interested in AI, Robotics, IoT..</br>Interest... Imagination... Passion...</p>
         </div>
       </div>
-      <div id="slide3" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
+      <div id="slide3" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <p id="pauseIndicator3" class="pause-indicator">Paused</p>
         <div class="middle-third">
           <h1><font color="#f4b400">WORK</font></h1>
           <p>Cognizant Technology Solutions, Kochi</p>
         </div>
       </div>
-      <div id="slide4" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
+      <div id="slide4" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <p id="pauseIndicator4" class="pause-indicator">Paused</p>
         <div class="middle-third">
           <h1><font color="#4285f4">HOME</font></h1>
           <p>Ooruttambalam, Trivandrum, S.Kerala, India</p>
         </div>
       </div>
-      <div id="slide5" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
+      <div id="slide5" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <p id="pauseIndicator5" class="pause-indicator">Paused</p>
         <div class="middle-third">
           <h1><font color="#db4437">CONTACT</font></h1>
           <p>jobinskumar91@gmail.com</p>
         </div>
       </div>
-      <div id="slide6" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
+      <div id="slide6" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
         <div class="twitter-overlay"></div>
         <div><a class="twitter-timeline" href="https://twitter.com/jobinskumar91?ref_src=twsrc%5Etfw">Tweets by jobinskumar91</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
       </div>
@@ -340,7 +355,19 @@
 
       function changeSlideOnClick(event) {
         var target = (event.target.dataset.slide) ? event.target.dataset.slide : event.target.offsetParent.dataset.slide;
-        changeSlide(target);
+        if (target === 'active') {
+          if (!resumeIndicatorTimer) {
+            document.getElementById('pauseIndicator' + activeSlide).style = 'display: block';
+            stopSlideAnimation();
+          } else {
+            document.getElementById('pauseIndicator' + activeSlide).style = 'display: none';
+            resumeSlideAnimation();
+          }
+        } else {
+          resumeIndicatorTimer = false;
+          document.getElementById('pauseIndicator' + activeSlide).style = 'display: none';
+          changeSlide(target);
+        }
       }
 
       function changeSlide(target) {
