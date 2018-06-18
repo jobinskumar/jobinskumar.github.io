@@ -271,37 +271,37 @@
   <body id="main" class="active-slide-1">
     <div class="story-container">
       <div id="slide0" class="slide previous-slide" style="opacity:0;cursor:default;"></div>
-      <div id="slide1" class="slide active" onclick="changeSlideOnClick(event)">
+      <div id="slide1" class="slide active" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()" data-slide="active">
         <div class="middle-third">
           <h1>I'M <font color="#2d89ef">JOBIN S KUMAR</font></h1>
           <p>Software Engineer</p>
         </div>
       </div>
-      <div id="slide2" class="slide next-slide" onclick="changeSlideOnClick(event)" data-slide="next">
+      <div id="slide2" class="slide next-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()" data-slide="next">
         <div class="middle-third">
           <h1><font color="#0f9d58">BIO</font></h1>
           <p>Passionate about technologies | Change the world to a better place </br>Interested in AI, Robotics, IoT..</br>Interest... Imagination... Passion...</p>
         </div>
       </div>
-      <div id="slide3" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+      <div id="slide3" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
         <div class="middle-third">
           <h1><font color="#f4b400">WORK</font></h1>
           <p>Cognizant Technology Solutions, Kochi</p>
         </div>
       </div>
-      <div id="slide4" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+      <div id="slide4" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
         <div class="middle-third">
           <h1><font color="#4285f4">HOME</font></h1>
           <p>Ooruttambalam, Trivandrum, S.Kerala, India</p>
         </div>
       </div>
-      <div id="slide5" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+      <div id="slide5" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
         <div class="middle-third">
           <h1><font color="#db4437">CONTACT</font></h1>
           <p>jobinskumar91@gmail.com</p>
         </div>
       </div>
-      <div id="slide6" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+      <div id="slide6" class="slide hidden-slide" onclick="changeSlideOnClick(event)" ontouchstart="stopSlideAnimation()" ontouchend="resumeSlideAnimation()">
         <div class="twitter-overlay"></div>
         <div><a class="twitter-timeline" href="https://twitter.com/jobinskumar91?ref_src=twsrc%5Etfw">Tweets by jobinskumar91</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
       </div>
@@ -335,6 +335,8 @@
       var activeSlide = 1;
       var mainBody = document.getElementById('main');
       var indicatorTimer;
+      var indicatorPercentage = 0;
+      var resumeIndicatorTimer = false;
 
       function changeSlideOnClick(event) {
         var target = (event.target.dataset.slide) ? event.target.dataset.slide : event.target.offsetParent.dataset.slide;
@@ -395,7 +397,8 @@
       }
 
       function updateIndicator(slide) {
-        var indicatorPercentage = 0;
+        indicatorPercentage = (indicatorPercentage > 0 && indicatorPercentage < 100 && resumeIndicatorTimer) ? indicatorPercentage : 0;
+        resumeIndicatorTimer = false;
         var slideDuration = 2500; // in milliseconds
         indicatorTimer = setInterval(function() {
           document.getElementById('slideIndicator' + slide).style = 'width: ' + indicatorPercentage++ + '%';
@@ -406,6 +409,15 @@
             }
           }
         }, slideDuration / 100);
+      }
+
+      function stopSlideAnimation() {
+        resumeIndicatorTimer = true;
+        clearInterval(indicatorTimer);
+      }
+
+      function resumeSlideAnimation() {
+        updateIndicator(activeSlide);
       }
 
       updateIndicator(1);
