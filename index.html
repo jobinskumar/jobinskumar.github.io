@@ -11,35 +11,153 @@
     <meta property="og:type" content="website" />	
     <meta name="Keywords" content="jobinskumar, jobin s kumar">
     <link rel="icon" href="img/jobin.png">
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-story"
-        src="https://cdn.ampproject.org/v0/amp-story-0.1.js"></script>
     <link rel='stylesheet' href='css/open-sans-condensed300-fontface.css'>
-    <style amp-custom>
-      amp-story {
+    <style>
+      body {
         font-family: 'Open Sans Condensed', sans-serif;
         color: #333;
+        background: #f1f1f1;
       }
-      amp-story-page {
-        background-color: #fff;
-      }
-      h1 {
+      h1, h2 {
         font-family: inherit;
         font-weight: 500;
         line-height: 1.1;
-        margin-top: 21% !important;
+        margin: 0;
       }
       p {
         font-weight: normal;
         font-size: 1.3em;
         line-height: 1.5em;
+        margin: 0;
       }
-      amp-story-grid-layer.bottom {
-        align-content:end;
+      .next-slide:hover, .previous-slide:hover {
+        opacity: 0.75;
+        cursor: pointer;
       }
-      #page5 amp-story-grid-layer div {
+      .next-slide {
+        display: inline-block !important;
+        position: relative;
+        transform: scale(0.65);
+        opacity: 0.15;
+      }
+      .previous-slide {
+        display: inline-block !important;
+        position: relative;
+        transform: scale(0.65);
+        opacity: 0.15;
+      }
+      .hidden-slide {
+        display: inline-block !important;
+        position: relative;
+        transform: scale(0.65);
+        opacity: 0;
+        width: 0 !important;
+      }
+      .slide {
+        box-shadow: 2px 2px 20px rgba(0,0,0,0.5)!important;
+        border-radius: 10px;
+        width: 360px;
+        height: 70vh;
+        margin-top: 15vh;
+        background: #FFF;
         overflow: auto;
+        display: inline-block;
+        -webkit-transition: width 500ms ease-out, transform 300ms ease-in 100ms, opacity 600ms;
+        transition: width 500ms ease-out, transform 300ms ease-in 100ms, opacity 600ms;
+        position: relative;
+        text-align: left;
+        transform: scale(0.65);
+        background-repeat: repeat-x !important;
+        background-position: bottom !important;
+        background-color: #fff !important;
+        will-change: width;
+        will-change: transform;
+        will-change: opacity;
+      }
+      .slide.active {
+        display: inline-block;
+        transform: scale(1);
+      }
+      .story-container {
+        height: 95vh;
+        position: relative;
+        text-align: center;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+      .indicator-group {
+        text-align: center;
+        margin-top: 30px;
+      }
+      .indicator-group div {
+        width: 45px;
+        height: 3px;
+        background: #c4c4c4;
+        display: inline-block;
+        margin: 2px;
+      }
+      .indicator span {
+        width: 0;
+        height: 3px;
+        display: block;
+      }
+
+      
+      @media only screen and (max-width: 1118px) {
+        .slide {
+          width: 300px;
+        }
+      }
+      
+      @media only screen and (max-width: 935px) {
+        .previous-slide, .next-slide, .hidden-slide {
+          display: none !important;
+        }
+        .slide {
+          width: 100%;
+          height: 100%;
+          box-shadow: none !important;
+          border-radius: 0;
+          margin-top: 0;
+        }
+        .middle-third {
+          margin-top: 35vh !important;
+        }
+        .indicator-group {
+          position: absolute;
+          top: 0;
+          margin-top: 0;
+          width: 100%;
+        }
+        .indicator-group div {
+          width: 15%;
+          margin: auto;
+        }
+        #slide6 {
+          margin-top: 20px;
+        }
+        .story-container {
+          background: #fff;
+        }
+        #slide2 .middle-third {
+          margin-top: 22vh !important;
+        }
+        .slide-control {
+          width: 27%;
+          height: 100%;
+          position: absolute;
+          background: transparent;
+          top: 0;
+        }
+        .right-control {
+          right: 0;
+        }
+      }
+      
+      .middle-third {
+        margin-top: 26vh;
+        margin-bottom: auto;
+        padding: 20px;
       }
       ::-webkit-scrollbar {
         width: 2px;
@@ -64,6 +182,8 @@
         background: #f7f7f7;
         border: 0px none #ffffff;
         border-radius: 50px;
+        margin-top: 8px;
+        margin-bottom: 6px;
       }
       ::-webkit-scrollbar-track:hover {
         background: #e1e1e1;
@@ -74,81 +194,191 @@
       ::-webkit-scrollbar-corner {
         background: transparent;
       }
+      .slide.active .twitter-overlay {
+        display: none;
+      }
+      .twitter-overlay {
+        background-color: #fff;
+        z-index: 8;
+        height: 100%;
+        width: 100%;
+        opacity: 0.15;
+        position: absolute;
+      }
+      #slideIndicator1 { background: #2d89ef; }
+      #slideIndicator2 { background: #0f9d58; }
+      #slideIndicator3 { background: #f4b400; }
+      #slideIndicator4 { background: #4285f4; }
+      #slideIndicator5 { background: #db4437; }
+      #slideIndicator6 { background: #2d89ef; }
+      #slide1 {
+        background: url(img/slide1.svg);
+      }
+      #slide2 {
+        background: url(img/slide2.svg);
+      }
+      #slide3 {
+        background: url(img/slide3.svg);
+      }
+      #slide4 {
+        background: url(img/slide4.svg);
+      }
+      #slide5 {
+        background: url(img/slide5.svg);
+      }
+      #slide7 {
+        background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E")!important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        background-size: 50px;
+      }
+      #slide2 .middle-third {
+        margin-top: 20vh !important;
+      }
     </style>
   </head>
-  <body>
-    <amp-story standalone title="Jobin S Kumar"
-    publisher="@jobinskumar"
-    publisher-logo-src="https://example.com/logo/1x1.png"
-    poster-portrait-src="https://example.com/my-story/poster/3x4.jpg">
-      <amp-story-page id="cover">
-        <amp-story-grid-layer template="thirds">
-          <div grid-area="middle-third">
-            <h1 animate-in="fade-in"
-                animate-in-duration="1s">I'M <font color="#2d89ef">JOBIN S KUMAR</font></h1>
-            <p grid-area="lower-third"
-               animate-in="fade-in"
-               animate-in-duration="1s">Software Engineer</p>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-      <amp-story-page id="page1">
-        <amp-story-grid-layer template="thirds">
-          <div grid-area="middle-third">
-            <h2 animate-in="fade-in"
-                animate-in-duration="1s"><font color="#0f9d58">BIO</font></h2>
-            <p grid-area="lower-third"
-               animate-in="fade-in"
-               animate-in-duration="1s">Passionate about technologies | Change the world to a better place | Interested in AI, Robotics, IOT.. Interest... Imagination... Passion...</p>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-      <amp-story-page id="page2">
-        <amp-story-grid-layer template="thirds">
-          <div grid-area="middle-third">
-            <h2 animate-in="fade-in"
-                animate-in-duration="1s"><font color="#f4b400">WORK</font></h2>
-            <p grid-area="lower-third"
-               animate-in="fade-in"
-               animate-in-duration="1s">Cognizant Technology Solutions, Kochi</p>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-      <amp-story-page id="page3">
-        <amp-story-grid-layer template="thirds">
-          <div grid-area="middle-third">
-            <h2 animate-in="fade-in"
-                animate-in-duration="1s"><font color="#4285f4">HOME</font></h2>
-            <p grid-area="lower-third"
-               animate-in="fade-in"
-               animate-in-duration="1s">Ooruttambalam, Trivandrum, S.Kerala, India</p>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-      <amp-story-page id="page4">
-        <amp-story-grid-layer template="thirds">
-          <div grid-area="middle-third">
-            <h2 animate-in="fade-in"
-                animate-in-duration="1s"><font color="#db4437">CONTACT</font></h2>
-            <p grid-area="lower-third"
-               animate-in="fade-in"
-               animate-in-duration="1s">jobinskumar91@gmail.com</p>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-      <amp-story-page id="page5">
-        <amp-story-grid-layer template="vertical">
-          <div><a class="twitter-timeline" href="https://twitter.com/jobinskumar91?ref_src=twsrc%5Etfw">Tweets by jobinskumar91</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-    </amp-story>
+  <body id="main" class="active-slide-1">
+    <div class="story-container">
+      <div id="slide0" class="slide previous-slide" style="opacity:0;cursor:default;"></div>
+      <div id="slide1" class="slide active" onclick="changeSlideOnClick(event)">
+        <div class="middle-third">
+          <h1>I'M <font color="#2d89ef">JOBIN S KUMAR</font></h1>
+          <p>Software Engineer</p>
+        </div>
+      </div>
+      <div id="slide2" class="slide next-slide" onclick="changeSlideOnClick(event)" data-slide="next">
+        <div class="middle-third">
+          <h1><font color="#0f9d58">BIO</font></h1>
+          <p>Passionate about technologies | Change the world to a better place </br>Interested in AI, Robotics, IoT..</br>Interest... Imagination... Passion...</p>
+        </div>
+      </div>
+      <div id="slide3" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <div class="middle-third">
+          <h1><font color="#f4b400">WORK</font></h1>
+          <p>Cognizant Technology Solutions, Kochi</p>
+        </div>
+      </div>
+      <div id="slide4" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <div class="middle-third">
+          <h1><font color="#4285f4">HOME</font></h1>
+          <p>Ooruttambalam, Trivandrum, S.Kerala, India</p>
+        </div>
+      </div>
+      <div id="slide5" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <div class="middle-third">
+          <h1><font color="#db4437">CONTACT</font></h1>
+          <p>jobinskumar91@gmail.com</p>
+        </div>
+      </div>
+      <div id="slide6" class="slide hidden-slide" onclick="changeSlideOnClick(event)">
+        <div class="twitter-overlay"></div>
+        <div><a class="twitter-timeline" href="https://twitter.com/jobinskumar91?ref_src=twsrc%5Etfw">Tweets by jobinskumar91</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+      </div>
+      <div id="slide7" class="slide hidden-slide" onclick="changeSlide('repeat')"></div>
+      
+      <div class="indicator-group">
+        <div class="indicator">
+          <span id="slideIndicator1"></span>
+        </div>
+        <div class="indicator">
+          <span id="slideIndicator2"></span>
+        </div>
+        <div class="indicator">
+          <span id="slideIndicator3"></span>
+        </div>
+        <div class="indicator">
+          <span id="slideIndicator4"></span>
+        </div>
+        <div class="indicator">
+          <span id="slideIndicator5"></span>
+        </div>
+        <div class="indicator">
+          <span id="slideIndicator6"></span>
+        </div>
+      </div>
+      <div class="slide-control left-control" onclick="changeSlide('prev')"></div>
+      <div class="slide-control right-control" onclick="changeSlide('next')"></div>
+    </div>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		    ga('create', 'UA-63103525-1', 'auto');
-		    ga('send', 'pageview');
+      var activeSlide = 1;
+      var mainBody = document.getElementById('main');
+      var indicatorTimer;
+
+      function changeSlideOnClick(event) {
+        var target = (event.target.dataset.slide) ? event.target.dataset.slide : event.target.offsetParent.dataset.slide;
+        changeSlide(target);
+      }
+
+      function changeSlide(target) {
+        if (!target) {
+          return;
+        }
+        document.getElementById('slide' + activeSlide).classList.remove('active');
+        mainBody.classList.remove('active-slide-' + activeSlide);
+        if (target == 'next') {
+          document.getElementById('slide' + activeSlide).dataset.slide = 'prev';
+          document.getElementById('slide' + (activeSlide - 1)).classList.remove('previous-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.add('hidden-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.remove('next-slide');
+
+          activeSlide = (activeSlide === 6) ? activeSlide : activeSlide + 1;
+          
+          document.getElementById('slide' + (activeSlide - 1)).classList.add('previous-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.remove('hidden-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.add('next-slide');
+          document.getElementById('slide' + (activeSlide + 1)).dataset.slide = 'next';
+        } else if (target == 'prev') {
+          document.getElementById('slide' + activeSlide).dataset.slide = 'next';
+          document.getElementById('slide' + (activeSlide + 1)).classList.remove('next-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.add('hidden-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.remove('previous-slide');
+
+          activeSlide = (activeSlide === 1) ? activeSlide : activeSlide - 1;
+          
+          document.getElementById('slide' + (activeSlide + 1)).classList.add('next-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.remove('hidden-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.add('previous-slide');
+          document.getElementById('slide' + (activeSlide - 1)).dataset.slide = 'prev';
+        } else if (target === 'repeat') {
+          document.getElementById('slide' + activeSlide).dataset.slide = 'next';
+          document.getElementById('slide' + (activeSlide)).classList.add('hidden-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.add('hidden-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.add('hidden-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.remove('previous-slide');
+
+          activeSlide = 1;
+          
+          document.getElementById('slide' + (activeSlide + 1)).classList.add('next-slide');
+          document.getElementById('slide' + (activeSlide)).classList.remove('hidden-slide');
+          document.getElementById('slide' + (activeSlide - 1)).classList.remove('hidden-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.remove('hidden-slide');
+          document.getElementById('slide' + (activeSlide + 1)).classList.add('next-slide');
+          document.getElementById('slide' + (activeSlide + 1)).dataset.slide = 'next';
+        }
+        document.getElementById('slide' + activeSlide).classList.add('active');
+        document.getElementById('slide' + activeSlide).dataset.slide = 'active';
+        mainBody.classList.add('active-slide-' + activeSlide);
+        clearInterval(indicatorTimer);
+        updateIndicator(activeSlide);
+      }
+
+      function updateIndicator(slide) {
+        var indicatorPercentage = 0;
+        var slideDuration = 2500; // in milliseconds
+        indicatorTimer = setInterval(function() {
+          document.getElementById('slideIndicator' + slide).style = 'width: ' + indicatorPercentage++ + '%';
+          if (indicatorPercentage > 100) {
+            clearInterval(indicatorTimer);
+            if (slide !== 6) {
+              //changeSlide('next');
+            }
+          }
+        }, slideDuration / 100);
+      }
+
+      updateIndicator(1);
     </script>
   </body>
 </html>
