@@ -1,0 +1,23 @@
+<svg width="360" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="362" height="402" id="canvas_background" fill="#fff"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#0f0f00" ry="80.499999" rx="80.499999" id="svg_18" cy="389.500001" cx="265.000001" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#0f9d58"/>
+  <ellipse ry="61" rx="61" id="svg_9" cy="386" cx="346.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#0f0f00" fill="#0f9d58"/>
+  <ellipse ry="61" rx="61" id="svg_21" cy="384" cx="15.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#0f0f00" fill="#0f9d58"/>
+  <ellipse ry="61" rx="61" id="svg_4" cy="340" cx="130.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#0f0f00" fill="#0f9d58"/>
+  <ellipse stroke="#0f0f00" ry="61.499999" rx="61.499999" id="svg_19" cy="395.500001" cx="270.999999" stroke-opacity="null" stroke-width="0" fill="#10bc66"/>
+  <ellipse stroke="#0f0f00" ry="47.999999" rx="47.999999" id="svg_10" cy="386.000001" cx="346.499999" stroke-opacity="null" stroke-width="0" fill="#10bc66"/>
+  <ellipse stroke="#0f0f00" ry="47.999999" rx="47.999999" id="svg_22" cy="384.000001" cx="15.499999" stroke-opacity="null" stroke-width="0" fill="#10bc66"/>
+  <ellipse stroke="#0f0f00" ry="47.999999" rx="47.999999" id="svg_3" cy="351.000001" cx="130.499999" stroke-opacity="null" stroke-width="0" fill="#10bc66"/>
+  <ellipse stroke="#0f0f00" ry="38.999997" rx="38.999997" id="svg_20" cy="407.000003" cx="282.5" stroke-opacity="null" stroke-width="0" fill="#33e08a"/>
+  <ellipse stroke="#0f0f00" ry="37.499999" rx="37.499999" id="svg_11" cy="385.500001" cx="345.999999" stroke-opacity="null" stroke-width="0" fill="#33e08a"/>
+  <ellipse stroke="#0f0f00" ry="37.499999" rx="37.499999" id="svg_25" cy="384.500001" cx="13.999999" stroke-opacity="null" stroke-width="0" fill="#33e08a"/>
+  <ellipse stroke="#0f0f00" ry="37.499999" rx="37.499999" id="svg_5" cy="362.500001" cx="130.999999" stroke-opacity="null" stroke-width="0" fill="#33e08a"/>
+ </g>
+</svg>
