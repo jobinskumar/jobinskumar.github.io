@@ -102,7 +102,14 @@
         height: 3px;
         display: block;
       }
-
+      .middle-third {
+        margin-top: 26vh;
+        margin-bottom: auto;
+        padding: 20px;
+      }
+      #slide2 .middle-third {
+        margin-top: 20vh !important;
+      }
       
       @media only screen and (max-width: 1118px) {
         .slide {
@@ -142,7 +149,7 @@
           background: #fff;
         }
         #slide2 .middle-third {
-          margin-top: 22vh !important;
+          margin-top: 30vh !important;
         }
         .slide-control {
           width: 27%;
@@ -151,18 +158,38 @@
           background: transparent;
           top: 0;
         }
+        .repeat-control {
+          right: 0;
+          background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E")!important;
+          background-repeat: no-repeat !important;
+          background-position: center !important;
+          background-color: transparent !important;
+          box-shadow: none !important;
+          background-size: 30px;
+          bottom: 0;
+          height: 30px;
+          top: auto;
+          background-color: #fff !important;
+          width: 40px;
+          opacity: 0.75;
+          border-radius: 15px;
+          display: none;
+        }
         .right-control {
           right: 0;
+        }
+        .active-slide-6 .right-control {
+          display: none;
+        }
+        .active-slide-6 .repeat-control {
+          display: block !important;
         }
         body {
           margin: 0 !important;
         }
-      }
-      
-      .middle-third {
-        margin-top: 26vh;
-        margin-bottom: auto;
-        padding: 20px;
+        #slide0 {
+          display: none;
+        }
       }
       ::-webkit-scrollbar {
         width: 2px;
@@ -239,9 +266,6 @@
         box-shadow: none !important;
         background-size: 50px;
       }
-      #slide2 .middle-third {
-        margin-top: 20vh !important;
-      }
     </style>
   </head>
   <body id="main" class="active-slide-1">
@@ -305,6 +329,7 @@
       </div>
       <div class="slide-control left-control" onclick="changeSlide('prev')"></div>
       <div class="slide-control right-control" onclick="changeSlide('next')"></div>
+      <div class="slide-control repeat-control" onclick="changeSlide('repeat')"></div>
     </div>
     <script>
       var activeSlide = 1;
